@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1&display=swap');
+
+:root{
+
+    /* main colors */
+    --bg_main: #d8d8d8;
+    --bg_input: #fafafa;
+    --font_main: #2e2e2e;
+    --font_headline: tomato;
+    --font_sm_btn: rgb(107, 107, 107);
+    /* fonts */
+    --ff_logo: 'Shippori Mincho B1', serif;
+    --ff_mainFont: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --ff-w-thin: 100;
+    --ff-w-reg: 400;
+    /* padding&space&margin */
+    --space: 1em;
+    --line: #eee;
+    /* shadow */
+    --shadow: 0px 6px 34px -19px rgba(0,0,0,0.79);
+}
+
+body{
+    font-family: var(--ff_mainFont);
+}
+
+.column {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+
+.logo{
+    font-family: var(--ff_logo);
+    color: var(--font_headline);
+    text-align: center;
+    font-size: 3em;
+    opacity: 50%;
+}
+
+.flex{
+    display: flex;
+}
+.center{
+    justify-content: center;
+}
+
+.box-shadow{
+    box-shadow: var(--shadow);
+}
+
+.border{
+    border: 1px solid var(--bg_main);
+}
+
+.input{
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1.25em;
+    font-family: inherit;
+    border: none;
+}
+
+.input:focus {
+    outline: none;
+  }
+
+.input::placeholder {
+    font-style: italic;
+    color: var(--font_headline);
+}
+
+.item {
+    font-weight: var(--ff-w-thin);
+    background-color: var(--bg_input);
+    color: var(--font_headline);
+    padding: var(--space);
+    padding-left: calc(var(--space) * 1);
+    border-bottom: 1px solid var(--line);
+  }
+
+.tasks{
+    box-shadow: var(--shadow);
+    position: relative;
+    z-index: 1;
+}
+
+.tasks ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tasks ul li{
+    padding: var(--space);
+    border-bottom: 1px solid var(--bg_main);
+}
+
+.font_gray{
+    color: var(--font_sm_btn);
+
+}
+
+
+.one{
+    color: blue;
+}
+
+.checked [type="checkbox"]{
+    appearance: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    width: 1.8em;
+    height: 1.8em;
+    border-radius: 50%;
+    border: 1px solid var(--bg_main);
+    vertical-align: middle;
+    transition: .2s ease-out
+}
+
+.checked [type="checkbox"]+label{
+    padding-left: calc(var(--space) * 0.5);
+}
+
+.checked [type="checkbox"]:after{
+    content: "";
+
+}
+
+.checked [type="checkbox"]:focus{
+    outline: none;
+}
+
+.checked [type='checkbox']:checked {
+    border-color: var(--font_headline);
+    transition:
+    background-color .2s ease-in,
+    border-color .2s ease-in;
+  } 
+
+  .checked [type='checkbox']:checked+label {
+    text-decoration: line-through;
+    color: var(--bg_main);
+    transition: ease-out;
+  } 
+
+  .checked [type=checkbox]:checked:after {
+   content: '✔';
+   display: flex;
+   align-items: center;
+   justify-content: center;
+    color: var(--font_headline);
+    font-size: 1.2em;
+}
+
+.inputBlock{
+    display: flex;
+    align-items: center;
+    background-color: var(--bg_input);
+}
+
+.itemAngle{
+    color: var(--font_headline);
+    padding-left: var(--space);
+}
+
+.size{
+    font-size: 1.4em;
+}
+
+.justify{
+    justify-content: space-between;
+}
+
+#delete{
+    color: var(--font_headline);
+    transition: all 0.2s ease-in;
+    display: none;
+}
+
+.flex-alignSelf--right {
+    margin-left: auto;
+  }
+  
+
+#delete:hover{
+    color: brown;
+}
+
+li:hover #delete{
+    display: block;
+}
+
+label:focus{
+    outline: none;
+}
+
+.align_flex{
+    align-items: center;
+}
+
+.pad_1{
+    padding:  0 1em 0 1em;
+}
+
+.btn{
+    border: 1px solid rgba(0, 0, 0, 0);
+    transition: all 0.2ms ease-in;
+    text-decoration: none;
+    padding: 0.5em;
+
+}
+
+.btn:hover{
+    border: 1px solid var(--font_headline);
+    border-radius: 3px;
+    transition: all ease-in;
+}
+
+.btn:target{
+    border: 1px solid var(--font_headline);
+    border-radius: 3px;
+    font-weight: 600;
+    color: var(--font_headline);
+}
+
+
+a:visited{
+    color: var(--font_sm_btn);
+    
+}
+a:active{
+    color: var(--font_sm_btn);
+}
+
+.a_underline:hover{
+    text-decoration: underline;
+}
+
+.footer{
+    box-shadow:  1px 1px rgb(0 0 0 / 20%), 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgb(0 0 0 / 20%), 0 16px 0 -6px #f6f6f6, 0 17px 2px -6px rgb(0 0 0 / 20%);
+}
+
+.error{
+    position: absolute;
+    z-index: 1;
+    top: 200px;
+    color: white;
+    background-color: tomato;
+    padding: 1em;
+    border-radius: 10px;
+    font-size: 1.2em;
+    font-weight: 600;
+    width: fit-content;
+}
+
+.erDiv{
+    display: flex;   
+    justify-content: center; 
+}

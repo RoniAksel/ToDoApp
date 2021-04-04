@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <title>Roni's Todo</title>
+</head>
+<body>
+    <div class="column">
+        <h1 class="logo">MyTodo</h1>
+        <main class="center">
+            <div class="todos box-shadow border">
+                <div class="inputBlock">
+                    <div class="itemAngle">
+                        <i id = "markAll" class="fas fa-angle-down size"></i>
+                    </div>
+                    <input id="inputTask" class="input item" type="text" placeholder="What needs to be done?">
+                </div>
+                <div class="tasks">
+                    <ul id="myList">
+                        <!-- <li> 
+                            <div class="flex justify">
+                                <div>
+                                    <input type="checkbox" name="" id="id-1">
+                                    <label for="id-1" contenteditable="">Task One</label>
+                                </div>
+                                <div>
+                                    <i class="fas fa-times-circle" id="delete"></i>
+                                </div>
+                            </div>
+
+                        </li>
+                        <li> 
+                            <div class="flex justify">
+                                <div>
+                                    <input type="checkbox" name="" id="id-2">
+                                    <label for="id-2" contenteditable="">Task One</label>
+                                </div>
+                                <div>
+                                    <i class="fas fa-times-circle" id="delete"></i>
+                                </div>
+                        </li>      
+                         <li> 
+                            <div class="flex justify">
+                                <div>
+                                    <input type="checkbox" name="" id="id-3">
+                                    <label for="id-3" contenteditable="">Task One</label>
+                                </div>
+                                <div>
+                                    <i class="fas fa-times-circle" id="delete"></i>
+                                </div>
+                        </li> -->
+                    </ul> 
+                    <div id ="nav">
+                        <div  class="flex justify align_flex pad_1 footer">
+                            <div>
+                                <p id = "taskCount" class="font_gray"></p>
+                            </div>
+                            <div>
+                                <a href="#all" class="btn" id="all">All</a>
+                                <a href="#active" class="btn" id="active">Active</a>
+                                <a href="#completed" class="btn" id="completed">Completed</a>
+                            </div>
+                            <div>
+                                <a id="clear" class="font_gray a_underline">Clear Completed</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <div class="erDiv">
+            <p class = "error"></p>
+        </div>
+
+    </div>
+<p id="pp"></p>
+<script src="app.js"></script>
+</body>
+</html>
