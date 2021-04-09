@@ -30,7 +30,7 @@ todoInput.addEventListener("keyup", (e) => {
 
 document.addEventListener("click", (e) =>{
     if (e.target.type === 'checkbox'){
-        toggle(e.target.parentElement.getAttribute('data-key'));
+        window.setTimeout(toggle(e.target.parentElement.getAttribute('data-key')),5000)
     }
 
     if (e.target.id == 'delete'){
@@ -45,15 +45,44 @@ clearCompleted.addEventListener("click", (e) =>{
 })
 
 
-markAll.addEventListener("click", () =>{
-    // const checkActive = todos.filter(todo => todo.active === true);
-    for (let i=0; i < todos.length; i++){
-        todos[i].active = !todos[i].active
+const markAllFunc = (e) =>{
+   for (let i=0; i < todos.length; i++){
+        if (todos[i].active === true){
+        	todos[i].active = false;
+          }
 
     }
 
     addToLocalStorage(todos);
+}
+
+markAll.addEventListener("click", markAllFunc) /* () =>{
+    // const checkActive = todos.filter(todo => todo.active === true);
+    for (let i=0; i < todos.length; i++){
+        if (todos[i].active === true){
+          todos[i].active = false;
+          }
+
+    }
+
+    addToLocalStorage(todos);
+} */
+
+
+
+markAll.addEventListener("dblclick", () =>{
+    // const checkActive = todos.filter(todo => todo.active === true);
+    for (let i=0; i < todos.length; i++){
+        if (todos[i].active === false){
+        	todos[i].active = true;
+          }
+
+    }
+ 
+
+    addToLocalStorage(todos);
 })
+
 
 
 active.addEventListener('click', (e)=>{
@@ -90,14 +119,18 @@ const addItemToList = (name) =>{
         active: true
     }
     if (name.trim() === ''){
-        error.style.display ='block';
-        error.innerHTML = `<i class="fas fa-exclamation-circle"></i> Error, Please Enter a Valid Input`
+        window.setTimeout(errorApp, 30)
     } else{
         todos.push (todo);
         addToLocalStorage(todos);
         todoInput.value = '';
         error.style.display ='none'
     }
+}
+
+const errorApp = () =>{
+  error.style.display ='block';
+	error.innerHTML = `<i class="fas fa-exclamation-circle"></i> Error, Please Enter a Valid Input`
 }
 
 const renderTodos = (todos) =>{
@@ -121,7 +154,7 @@ const renderTodos = (todos) =>{
         li.appendChild(iBtn)
         myList.append(li);
     })
-    countIncompleteTasks(todos)
+    countIncompleteTasksCount(todos)
     if (todos.length > 0){
         nav.style.display = 'block'
     } else{
@@ -156,11 +189,10 @@ const deleteTodo = (id) =>{
     addToLocalStorage(todos)
 }
 
-const countIncompleteTasks = (item)=>{
+const countIncompleteTasksCount = (item)=>{
    const incompleteCount = item.filter(task => task.active).length
    const taskString = incompleteCount <= 1 ? "task" : "tasks"
    taskCount.innerHTML = `${incompleteCount} ${taskString} active`;
 } 
 
 getFromLocalStorage();
-
